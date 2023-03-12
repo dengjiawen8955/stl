@@ -14,43 +14,52 @@ type ConstIterator[T any] interface {
 	Equal(other ConstIterator[T]) bool
 }
 
-// Iterator is an interface of mutable iterator
+// Iterator 是一个可写的迭代器接口
 type Iterator[T any] interface {
 	ConstIterator[T]
+	// 设置当前元素的值
 	SetValue(value T)
 }
 
-// ConstKvIterator is an interface of const key-value type iterator
+// ConstKvIterator 是一个只读的键值对迭代器接口
 type ConstKvIterator[K, V any] interface {
+	// 迭代值
 	ConstIterator[V]
+	// 迭代键
 	Key() K
 }
 
-// KvIterator is an interface of mutable key-value type iterator
+// KvIterator 是一个可写的键值对迭代器接口
 type KvIterator[K, V any] interface {
+	// 迭代键, 值
 	ConstKvIterator[K, V]
+	// 设置值
 	SetValue(value V)
 }
 
-// ConstBidIterator is an interface of const bidirectional iterator
+// ConstBidIterator 是一个只读的双向迭代器接口, 可以向前或向后移动
 type ConstBidIterator[T any] interface {
+	// 上一个迭代器
 	ConstIterator[T]
+	// 下一个迭代器
 	Prev() ConstBidIterator[T]
 }
 
-// BidIterator is an interface of mutable bidirectional iterator
+// BidIterator 是一个可写的双向迭代器接口, 可以向前或向后移动
 type BidIterator[T any] interface {
 	ConstBidIterator[T]
+	// 设置当前元素的值
 	SetValue(value T)
 }
 
-// ConstKvBidIterator is an interface of const key-value type bidirectional iterator
+// ConstKvBidIterator 是一个只读的双向键值对迭代器接口, 可以向前或向后移动
 type ConstKvBidIterator[K, V any] interface {
+	// 迭代键值
 	ConstKvIterator[K, V]
 	BidIterator[V]
 }
 
-// KvBidIterator is an interface of mutable key-value type bidirectional iterator
+// KvBidIterator 是一个可写的双向键值对迭代器接口, 可以向前或向后移动
 type KvBidIterator[K, V any] interface {
 	KvIterator[K, V]
 	BidIterator[V]
