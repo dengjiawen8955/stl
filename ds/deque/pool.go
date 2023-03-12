@@ -2,34 +2,25 @@ package deque
 
 // Pool is a memory pool for holding Segments
 type Pool[T any] struct {
-	segs []*Segment[T]
+	 //TODO: Complete me!
 }
 
 func newPool[T any]() *Pool[T] {
-	return &Pool[T]{segs: make([]*Segment[T], 0)}
+	 //TODO: Complete me!
 }
 
 func (p *Pool[T]) get() *Segment[T] {
-	if len(p.segs) == 0 {
-		return newSegment[T](SegmentCapacity)
-	}
-	s := p.segs[len(p.segs)-1]
-	p.segs = p.segs[:len(p.segs)-1]
-	return s
+	 //TODO: Complete me!
 }
 
 func (p *Pool[T]) put(s *Segment[T]) {
-	p.segs = append(p.segs, s)
+	 //TODO: Complete me!
 }
 
 func (p *Pool[T]) shrinkToSize(size int) {
-	if len(p.segs) > size {
-		newSeg := make([]*Segment[T], size)
-		copy(newSeg, p.segs)
-		p.segs = newSeg
-	}
+	 //TODO: Complete me!
 }
 
 func (p *Pool[T]) size() int {
-	return len(p.segs)
+	 //TODO: Complete me!
 }

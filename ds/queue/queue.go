@@ -14,8 +14,7 @@ var (
 
 // Options holds Queue's options
 type Options[T any] struct {
-	locker    sync.Locker
-	container container.Container[T]
+	 //TODO: Complete me!
 }
 
 // Option is a function type used to set Options
@@ -23,107 +22,65 @@ type Option[T any] func(option *Options[T])
 
 // WithGoroutineSafe is used to set a Queue goroutine-safe
 func WithGoroutineSafe[T any]() Option[T] {
-	return func(option *Options[T]) {
-		option.locker = &gosync.RWMutex{}
-	}
+	 //TODO: Complete me!
 }
 
 // WithContainer is used to set a Queue's underlying container
 func WithContainer[T any](c container.Container[T]) Option[T] {
-	return func(option *Options[T]) {
-		option.container = c
-	}
+	 //TODO: Complete me!
 }
 
 // WithListContainer is used to set List as a Queue's underlying container
 func WithListContainer[T any]() Option[T] {
-	return func(option *Options[T]) {
-		option.container = bidlist.New[T]()
-	}
+	 //TODO: Complete me!
 }
 
 // Queue is a first-in-first-out data structure
 type Queue[T any] struct {
-	container container.Container[T]
-	locker    sync.Locker
+	 //TODO: Complete me!
 }
 
 //New creates a new queue
 func New[T any](opts ...Option[T]) *Queue[T] {
-	option := Options[T]{
-		locker:    defaultLocker,
-		container: deque.New[T](),
-	}
-	for _, opt := range opts {
-		opt(&option)
-	}
-
-	return &Queue[T]{
-		container: option.container,
-		locker:    option.locker,
-	}
+	 //TODO: Complete me!
 }
 
 // Size returns the amount of elements in the queue
 func (q *Queue[T]) Size() int {
-	q.locker.RLock()
-	defer q.locker.RUnlock()
-
-	return q.container.Size()
+	 //TODO: Complete me!
 }
 
 // Empty returns true if the queue is empty, otherwise returns false
 func (q *Queue[T]) Empty() bool {
-	q.locker.RLock()
-	defer q.locker.RUnlock()
-
-	return q.container.Empty()
+	 //TODO: Complete me!
 }
 
 // Push pushes a value to the end of the queue
 func (q *Queue[T]) Push(value T) {
-	q.locker.Lock()
-	defer q.locker.Unlock()
-
-	q.container.PushBack(value)
+	 //TODO: Complete me!
 }
 
 // Front returns the front value in the queue
 func (q *Queue[T]) Front() any {
-	q.locker.RLock()
-	defer q.locker.RUnlock()
-
-	return q.container.Front()
+	 //TODO: Complete me!
 }
 
 // Back returns the back value in the queue
 func (q *Queue[T]) Back() any {
-	q.locker.RLock()
-	defer q.locker.RUnlock()
-
-	return q.container.Back()
+	 //TODO: Complete me!
 }
 
 // Pop removes the the front element in the queue, and returns its value
 func (q *Queue[T]) Pop() any {
-	q.locker.Lock()
-	defer q.locker.Unlock()
-
-	return q.container.PopFront()
+	 //TODO: Complete me!
 }
 
 // Clear clears all elements in the queue
 func (q *Queue[T]) Clear() {
-	q.locker.Lock()
-	defer q.locker.Unlock()
-
-	q.container.Clear()
+	 //TODO: Complete me!
 }
 
 // String returns a string representation of the queue
 func (q *Queue[T]) String() string {
-	q.locker.RLock()
-	defer q.locker.RUnlock()
-
-	return q.container.String()
+	 //TODO: Complete me!
 }

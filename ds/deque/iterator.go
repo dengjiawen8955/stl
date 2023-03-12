@@ -11,67 +11,50 @@ var _ iterator.RandomAccessIterator[T] = (*DequeIterator[T])(nil)
 
 // DequeIterator is an implementation of Deque iterator
 type DequeIterator[T any] struct {
-	dq       *Deque[T]
-	position int
+	 //TODO: Complete me!
 }
 
 // IsValid returns true if  the iterator is valid, otherwise returns false
 func (iter *DequeIterator[T]) IsValid() bool {
-	if iter.position >= 0 && iter.position < iter.dq.Size() {
-		return true
-	}
-	return false
+	 //TODO: Complete me!
 }
 
 // Value returns the value of the deque at the position of the iterator point to
 func (iter *DequeIterator[T]) Value() T {
-	return iter.dq.At(iter.position)
+	 //TODO: Complete me!
 }
 
 // SetValue sets the value of the deque at the position of the iterator point to
 func (iter *DequeIterator[T]) SetValue(val T) {
-	iter.dq.Set(iter.position, val)
+	 //TODO: Complete me!
 }
 
 // Next moves the position of the iterator to the next position and returns itself
 func (iter *DequeIterator[T]) Next() iterator.ConstIterator[T] {
-	if iter.position < iter.dq.Size() {
-		iter.position++
-	}
-	return iter
+	 //TODO: Complete me!
 }
 
 // Prev moves the position of the iterator to the previous position and returns itself
 func (iter *DequeIterator[T]) Prev() iterator.ConstBidIterator[T] {
-	if iter.position >= 0 {
-		iter.position--
-	}
-	return iter
+	 //TODO: Complete me!
 }
 
 // Clone clones the iterator to a new iterator
 func (iter *DequeIterator[T]) Clone() iterator.ConstIterator[T] {
-	return &DequeIterator[T]{dq: iter.dq, position: iter.position}
+	 //TODO: Complete me!
 }
 
 // IteratorAt creates a new iterator with the passed position
 func (iter *DequeIterator[T]) IteratorAt(position int) iterator.RandomAccessIterator[T] {
-	return &DequeIterator[T]{dq: iter.dq, position: position}
+	 //TODO: Complete me!
 }
 
 // Position returns the position of iterator
 func (iter *DequeIterator[T]) Position() int {
-	return iter.position
+	 //TODO: Complete me!
 }
 
 // Equal returns true if the iterator is equal to the passed iterator, otherwise returns false
 func (iter *DequeIterator[T]) Equal(other iterator.ConstIterator[T]) bool {
-	otherIter, ok := other.(*DequeIterator[T])
-	if !ok {
-		return false
-	}
-	if otherIter.dq == iter.dq && otherIter.position == iter.position {
-		return true
-	}
-	return false
+	 //TODO: Complete me!
 }

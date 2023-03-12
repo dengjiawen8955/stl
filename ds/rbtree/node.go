@@ -11,81 +11,50 @@ const (
 
 // Node is a tree node
 type Node[K, V any] struct {
-	parent *Node[K, V]
-	left   *Node[K, V]
-	right  *Node[K, V]
-	color  Color
-	key    K
-	value  V
+	 //TODO: Complete me!
 }
 
 // Key returns node's key
 func (n *Node[K, V]) Key() K {
-	return n.key
+	 //TODO: Complete me!
 }
 
 // Value returns node's value
 func (n *Node[K, V]) Value() V {
-	return n.value
+	 //TODO: Complete me!
 }
 
 // SetValue sets node's value
 func (n *Node[K, V]) SetValue(val V) {
-	n.value = val
+	 //TODO: Complete me!
 }
 
 // Next returns the Node's successor as an iterator.
 func (n *Node[K, V]) Next() *Node[K, V] {
-	return successor(n)
+	 //TODO: Complete me!
 }
 
 // Prev returns the Node's predecessor as an iterator.
 func (n *Node[K, V]) Prev() *Node[K, V] {
-	return presuccessor(n)
+	 //TODO: Complete me!
 }
 
 // successor returns the successor of the Node
 func successor[K, V any](x *Node[K, V]) *Node[K, V] {
-	if x.right != nil {
-		return minimum(x.right)
-	}
-	y := x.parent
-	for y != nil && x == y.right {
-		x = y
-		y = x.parent
-	}
-	return y
+	 //TODO: Complete me!
 }
 
 // presuccessor returns the presuccessor of the Node
 func presuccessor[K, V any](x *Node[K, V]) *Node[K, V] {
-	if x.left != nil {
-		return maximum(x.left)
-	}
-	if x.parent != nil {
-		if x.parent.right == x {
-			return x.parent
-		}
-		for x.parent != nil && x.parent.left == x {
-			x = x.parent
-		}
-		return x.parent
-	}
-	return nil
+	 //TODO: Complete me!
 }
 
 // minimum finds the minimum Node of subtree n.
 func minimum[K any, V any](n *Node[K, V]) *Node[K, V] {
-	for n.left != nil {
-		n = n.left
-	}
-	return n
+	 //TODO: Complete me!
 }
 
 // maximum finds the maximum Node of subtree n.
 func maximum[K any, V any](n *Node[K, V]) *Node[K, V] {
-	for n.right != nil {
-		n = n.right
-	}
-	return n
+	 //TODO: Complete me!
 }

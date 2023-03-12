@@ -36,6 +36,11 @@ serve: gen
 	# 使用 nginx 代理 docs 目录
 	docker run --rm -it -p 3000:80 -v $(make_dir)/docs:/usr/share/nginx/html:ro nginx
 
+## complete.me: Auto delete ds and algorithm struct and func content, to complete me
+.PHONY: complete.me
+complete.me:
+	to-complete-me ds
+	to-complete-me algorithm
 
 ## help: Show this help info.
 .PHONY: help

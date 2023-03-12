@@ -18,7 +18,7 @@ var ErrorNotFound = errors.New("not found")
 
 // Options holds Map's options
 type Options struct {
-	locker sync.Locker
+	 //TODO: Complete me!
 }
 
 // Option is a function type used to set Options
@@ -28,159 +28,85 @@ type Option func(option *Options)
 // Note that iterators are not goroutine safe, and it is useless to turn on the setting option here.
 // so don't use iterator in multi goroutines
 func WithGoroutineSafe() Option {
-	return func(option *Options) {
-		option.locker = &gosync.RWMutex{}
-	}
+	 //TODO: Complete me!
 }
 
 // Map uses RbTress for internal data structure, and every key can must bee unique.
 type Map[K, V any] struct {
-	tree   *rbtree.RbTree[K, V]
-	locker sync.Locker
+	 //TODO: Complete me!
 }
 
 // New creates a new map
 func New[K, V any](cmp comparator.Comparator[K], opts ...Option) *Map[K, V] {
-	option := Options{
-		locker: defaultLocker,
-	}
-	for _, opt := range opts {
-		opt(&option)
-	}
-	return &Map[K, V]{tree: rbtree.New[K, V](cmp),
-		locker: option.locker,
-	}
+	 //TODO: Complete me!
 }
 
 //Insert inserts a key-value to the map
 func (m *Map[K, V]) Insert(key K, value V) {
-	m.locker.Lock()
-	defer m.locker.Unlock()
-
-	node := m.tree.FindNode(key)
-	if node != nil {
-		node.SetValue(value)
-		return
-	}
-	m.tree.Insert(key, value)
+	 //TODO: Complete me!
 }
 
 //Get returns the value of the passed key if the key is in the map, otherwise returns nil
 func (m *Map[K, V]) Get(key K) (V, error) {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	node := m.tree.FindNode(key)
-	if node != nil {
-		return node.Value(), nil
-	}
-	return *new(V), ErrorNotFound
+	 //TODO: Complete me!
 }
 
 //Erase erases the node by the passed key from the map if the key in the Map
 func (m *Map[K, V]) Erase(key K) {
-	m.locker.Lock()
-	defer m.locker.Unlock()
-
-	node := m.tree.FindNode(key)
-	if node != nil {
-		m.tree.Delete(node)
-	}
+	 //TODO: Complete me!
 }
 
 //EraseIter erases the node that iterator iter point to from the map
 func (m *Map[K, V]) EraseIter(iter iterator.ConstKvIterator[K, V]) {
-	m.locker.Lock()
-	defer m.locker.Unlock()
-
-	mpIter, ok := iter.(*MapIterator[K, V])
-	if ok {
-		m.tree.Delete(mpIter.node)
-	}
+	 //TODO: Complete me!
 }
 
 //Find finds a node by the passed key and returns its iterator
 func (m *Map[K, V]) Find(key K) *MapIterator[K, V] {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	node := m.tree.FindNode(key)
-	return &MapIterator[K, V]{node: node}
+	 //TODO: Complete me!
 }
 
 //LowerBound finds a node that its key is equal or greater than the passed key and returns its iterator
 func (m *Map[K, V]) LowerBound(key K) *MapIterator[K, V] {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	node := m.tree.FindLowerBoundNode(key)
-	return &MapIterator[K, V]{node: node}
+	 //TODO: Complete me!
 }
 
 //UpperBound finds a node that its key is greater than the passed key and returns its iterator
 func (m *Map[K, V]) UpperBound(key K) *MapIterator[K, V] {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	node := m.tree.FindUpperBoundNode(key)
-	return &MapIterator[K, V]{node: node}
+	 //TODO: Complete me!
 }
 
 //Begin returns the first node's iterator
 func (m *Map[K, V]) Begin() *MapIterator[K, V] {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	return &MapIterator[K, V]{node: m.tree.First()}
+	 //TODO: Complete me!
 }
 
 //First returns the first node's iterator
 func (m *Map[K, V]) First() *MapIterator[K, V] {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	return &MapIterator[K, V]{node: m.tree.First()}
+	 //TODO: Complete me!
 }
 
 //Last returns the last node's iterator
 func (m *Map[K, V]) Last() *MapIterator[K, V] {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	return &MapIterator[K, V]{node: m.tree.Last()}
+	 //TODO: Complete me!
 }
 
 //Clear clears the map
 func (m *Map[K, V]) Clear() {
-	m.locker.Lock()
-	defer m.locker.Unlock()
-
-	m.tree.Clear()
+	 //TODO: Complete me!
 }
 
 // Contains returns true if the key is in the map. otherwise returns false.
 func (m *Map[K, V]) Contains(key K) bool {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	if _, err := m.tree.Find(key); err == nil {
-		return true
-	}
-	return false
+	 //TODO: Complete me!
 }
 
 // Size returns the amount of elements in the map
 func (m *Map[K, V]) Size() int {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	return m.tree.Size()
+	 //TODO: Complete me!
 }
 
 // Traversal traversals elements in the map, it will not stop until to the end or the visitor returns false
 func (m *Map[K, V]) Traversal(visitor visitor.KvVisitor[K, V]) {
-	m.locker.RLock()
-	defer m.locker.RUnlock()
-
-	m.tree.Traversal(visitor)
+	 //TODO: Complete me!
 }

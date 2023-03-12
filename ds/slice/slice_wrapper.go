@@ -2,64 +2,50 @@ package slice
 
 //SliceWrapper wraps a slice in order to provide functions related to iterators
 type SliceWrapper[T any] struct {
-	slice []T
+	 //TODO: Complete me!
 }
 
 // NewSliceWrapper creates a SliceWrapper
 func NewSliceWrapper[T any](slice []T) *SliceWrapper[T] {
-	return &SliceWrapper[T]{
-		slice: slice,
-	}
+	 //TODO: Complete me!
 }
 
 // Attach update the internal slice to newSlice
 func (s *SliceWrapper[T]) Attach(newSlice []T) {
-	s.slice = newSlice
+	 //TODO: Complete me!
 }
 
 // Len returns the length of s
 func (s *SliceWrapper[T]) Len() int {
-	return len(s.slice)
+	 //TODO: Complete me!
 }
 
 // At returns the value at position
 func (s *SliceWrapper[T]) At(position int) T {
-	if position < 0 || position >= s.Len() {
-		panic("Out off range")
-	}
-	return s.slice[position]
+	 //TODO: Complete me!
 }
 
 // Set sets value at position
 func (s *SliceWrapper[T]) Set(position int, val T) {
-	if position < 0 || position >= s.Len() {
-		return
-	}
-	s.slice[position] = val
+	 //TODO: Complete me!
 }
 
 // Begin returns the first iterator of s
 func (s *SliceWrapper[T]) Begin() *SliceIterator[T] {
-	return s.First()
+	 //TODO: Complete me!
 }
 
 // End returns the end iterator of s
 func (s *SliceWrapper[T]) End() *SliceIterator[T] {
-	return &SliceIterator[T]{s: s,
-		position: s.Len(),
-	}
+	 //TODO: Complete me!
 }
 
 // First returns the first iterator of s
 func (s *SliceWrapper[T]) First() *SliceIterator[T] {
-	return &SliceIterator[T]{s: s,
-		position: 0,
-	}
+	 //TODO: Complete me!
 }
 
 // Last returns the last iterator of s
 func (s *SliceWrapper[T]) Last() *SliceIterator[T] {
-	return &SliceIterator[T]{s: s,
-		position: s.Len(),
-	}
+	 //TODO: Complete me!
 }
