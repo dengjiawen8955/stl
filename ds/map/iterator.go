@@ -6,46 +6,46 @@ import (
 )
 
 // MapIterator is a map iterator
-type MapIterator[K, V any] struct {
+type MapIterator struct {
 	 //TODO: Complete me!
 }
 
 // IsValid returns true if the iterator is valid, otherwise returns false
-func (iter *MapIterator[K, V]) IsValid() bool {
+func (iter *MapIterator) IsValid() bool {
 	 //TODO: Complete me!
 }
 
 // Next moves the pointer of the iterator to the next node, and returns itself
-func (iter *MapIterator[K, V]) Next() iterator.ConstIterator[V] {
+func (iter *MapIterator) Next() iterator.ConstIterator {
 	 //TODO: Complete me!
 }
 
 // Prev moves the pointer of the iterator to the previous node, and returns itseft
-func (iter *MapIterator[K, V]) Prev() iterator.ConstBidIterator[V] {
+func (iter *MapIterator) Prev() iterator.ConstBidIterator {
 	 //TODO: Complete me!
 }
 
 // Key returns the node's key of the iterator point to
-func (iter *MapIterator[K, V]) Key() K {
+func (iter *MapIterator) Key() interface{} {
 	 //TODO: Complete me!
 }
 
 // Value returns the node's value of the iterator point to
-func (iter *MapIterator[K, V]) Value() V {
+func (iter *MapIterator) Value() interface{} {
 	 //TODO: Complete me!
 }
 
 // SetValue sets the node's value of the iterator point to
-func (iter *MapIterator[K, V]) SetValue(val V) {
+func (iter *MapIterator) SetValue(val interface{}) {
 	 //TODO: Complete me!
 }
 
 // Clone clones the iterator to a new MapIterator
-func (iter *MapIterator[K, V]) Clone() iterator.ConstIterator[V] {
+func (iter *MapIterator) Clone() iterator.ConstIterator {
 	 //TODO: Complete me!
 }
 
 // Equal returns true if the iterator is equal to the passed iterator, otherwise returns false
-func (iter *MapIterator[K, V]) Equal(other iterator.ConstIterator[V]) bool {
+func (iter *MapIterator) Equal(other iterator.ConstIterator) bool {
 	 //TODO: Complete me!
 }

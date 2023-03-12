@@ -8,19 +8,17 @@ import (
 )
 
 func main() {
-	a := make([]int, 0)
+	a := slice.IntSlice(make([]int, 0))
 	a = append(a, 2)
 	a = append(a, 1)
 	a = append(a, 3)
 	fmt.Printf("%v\n", a)
 
-	wa := slice.NewSliceWrapper(a)
-
 	// sort in ascending
-	sort.Sort[int](wa.Begin(), wa.End(), comparator.IntComparator)
+	sort.Sort(a.Begin(), a.End())
 	fmt.Printf("%v\n", a)
 
 	// sort in descending
-	sort.Sort[int](wa.Begin(), wa.End(), comparator.Reverse(comparator.IntComparator))
+	sort.Sort(a.Begin(), a.End(), comparator.Reverse(comparator.BuiltinTypeComparator))
 	fmt.Printf("%v\n", a)
 }

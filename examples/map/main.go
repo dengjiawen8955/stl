@@ -2,20 +2,17 @@ package main
 
 import (
 	"fmt"
-	"stl/ds/treemap"
-	"stl/utils/comparator"
+	treemap "stl/ds/map"
 )
 
 func main() {
-	m := treemap.New[string, string](comparator.StringComparator, treemap.WithGoroutineSafe())
+	m := treemap.New(treemap.WithGoroutineSafe())
 
 	m.Insert("a", "aaa")
 	m.Insert("b", "bbb")
 
-	a, _ := m.Get("a")
-	b, _ := m.Get("b")
-	fmt.Printf("a = %v\n", a)
-	fmt.Printf("b = %v\n", b)
+	fmt.Printf("a = %v\n", m.Get("a"))
+	fmt.Printf("b = %v\n", m.Get("b"))
 
 	m.Erase("b")
 }

@@ -4,57 +4,55 @@ import (
 	"stl/utils/iterator"
 )
 
-type T any
-
 //ArrayIterator is an implementation of RandomAccessIterator
-var _ iterator.RandomAccessIterator[T] = (*VectorIterator[T])(nil)
+var _ iterator.RandomAccessIterator = (*VectorIterator)(nil)
 
 // VectorIterator represents a vector iterator
-type VectorIterator[T any] struct {
+type VectorIterator struct {
 	 //TODO: Complete me!
 }
 
 // IsValid returns true if the iterator is valid, otherwise returns false
-func (iter *VectorIterator[T]) IsValid() bool {
+func (iter *VectorIterator) IsValid() bool {
 	 //TODO: Complete me!
 }
 
 // Value returns the value of the iterator point to
-func (iter *VectorIterator[T]) Value() T {
+func (iter *VectorIterator) Value() interface{} {
 	 //TODO: Complete me!
 }
 
 // SetValue sets the value of the iterator point to
-func (iter *VectorIterator[T]) SetValue(val T) {
+func (iter *VectorIterator) SetValue(val interface{}) {
 	 //TODO: Complete me!
 }
 
 // Next moves the position of iterator to the next position and returns itself
-func (iter *VectorIterator[T]) Next() iterator.ConstIterator[T] {
+func (iter *VectorIterator) Next() iterator.ConstIterator {
 	 //TODO: Complete me!
 }
 
 // Prev moves the position of the iterator to the previous position and returns itself
-func (iter *VectorIterator[T]) Prev() iterator.ConstBidIterator[T] {
+func (iter *VectorIterator) Prev() iterator.ConstBidIterator {
 	 //TODO: Complete me!
 }
 
 // Clone clones the iterator into a new iterator
-func (iter *VectorIterator[T]) Clone() iterator.ConstIterator[T] {
+func (iter *VectorIterator) Clone() iterator.ConstIterator {
 	 //TODO: Complete me!
 }
 
 // IteratorAt creates an iterator with the passed position
-func (iter *VectorIterator[T]) IteratorAt(position int) iterator.RandomAccessIterator[T] {
+func (iter *VectorIterator) IteratorAt(position int) iterator.RandomAccessIterator {
 	 //TODO: Complete me!
 }
 
 // Position return the position of the iterator point to
-func (iter *VectorIterator[T]) Position() int {
+func (iter *VectorIterator) Position() int {
 	 //TODO: Complete me!
 }
 
 // Equal returns true if the iterator is equal to the passed iterator
-func (iter *VectorIterator[T]) Equal(other iterator.ConstIterator[T]) bool {
+func (iter *VectorIterator) Equal(other iterator.ConstIterator) bool {
 	 //TODO: Complete me!
 }

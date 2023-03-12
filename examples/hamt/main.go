@@ -6,15 +6,13 @@ import (
 )
 
 func main() {
-	h := hamt.New[string](hamt.WithGoroutineSafe())
+	h := hamt.New(hamt.WithGoroutineSafe())
 	key := []byte("aaaaa")
 	val := "bbbbbbbbbbbbb"
 
 	h.Insert(key, val)
-	v, _ := h.Get(key)
-	fmt.Printf("%v = %v\n", string(key), v)
+	fmt.Printf("%v = %v\n", string(key), h.Get(key))
 
 	h.Erase(key)
-	v, _ = h.Get(key)
-	fmt.Printf("%v = %v\n", string(key), v)
+	fmt.Printf("%v = %v\n", string(key), h.Get(key))
 }

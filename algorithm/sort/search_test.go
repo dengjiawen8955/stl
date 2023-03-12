@@ -9,7 +9,7 @@ import (
 )
 
 func TestSearch(t *testing.T) {
-	a := deque.New[int]()
+	a := deque.New()
 	a.PushBack(1)
 	a.PushBack(3)
 	a.PushFront(5)
@@ -18,22 +18,22 @@ func TestSearch(t *testing.T) {
 	a.PushFront(3)
 	a.PushBack(15)
 
-	Sort[int](a.Begin(), a.End(), comparator.IntComparator)
+	Sort(a.Begin(), a.End())
 
 	t.Logf("a: %v", a)
-	assert.True(t, BinarySearch[int](a.Begin(), a.End(), 5, comparator.IntComparator))
-	assert.False(t, BinarySearch[int](a.Begin(), a.End(), 10, comparator.IntComparator))
+	assert.True(t, BinarySearch(a.Begin(), a.End(), 5, comparator.BuiltinTypeComparator))
+	assert.False(t, BinarySearch(a.Begin(), a.End(), 10))
 
-	iter := LowerBound[int](a.Begin(), a.End(), 3, comparator.IntComparator)
+	iter := LowerBound(a.Begin(), a.End(), 3, comparator.BuiltinTypeComparator)
 	assert.Equal(t, 3, iter.Value())
 	assert.Equal(t, 3, iter.Clone().Next().Value())
 
-	iter = LowerBound[int](a.Begin(), a.End(), 4, comparator.IntComparator)
+	iter = LowerBound(a.Begin(), a.End(), 4)
 	assert.Equal(t, 4, iter.Value())
 
-	iter = UpperBound[int](a.Begin(), a.End(), 4, comparator.IntComparator)
+	iter = UpperBound(a.Begin(), a.End(), 4, comparator.BuiltinTypeComparator)
 	assert.Equal(t, 5, iter.Value())
 
-	iter = UpperBound[int](a.Begin(), a.End(), 15, comparator.IntComparator)
+	iter = UpperBound(a.Begin(), a.End(), 15)
 	assert.True(t, iter.Equal(a.End()))
 }

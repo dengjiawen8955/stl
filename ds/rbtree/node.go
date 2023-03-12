@@ -10,51 +10,51 @@ const (
 )
 
 // Node is a tree node
-type Node[K, V any] struct {
+type Node struct {
 	 //TODO: Complete me!
 }
 
 // Key returns node's key
-func (n *Node[K, V]) Key() K {
+func (n *Node) Key() interface{} {
 	 //TODO: Complete me!
 }
 
 // Value returns node's value
-func (n *Node[K, V]) Value() V {
+func (n *Node) Value() interface{} {
 	 //TODO: Complete me!
 }
 
 // SetValue sets node's value
-func (n *Node[K, V]) SetValue(val V) {
+func (n *Node) SetValue(val interface{}) {
 	 //TODO: Complete me!
 }
 
 // Next returns the Node's successor as an iterator.
-func (n *Node[K, V]) Next() *Node[K, V] {
+func (n *Node) Next() *Node {
 	 //TODO: Complete me!
 }
 
 // Prev returns the Node's predecessor as an iterator.
-func (n *Node[K, V]) Prev() *Node[K, V] {
+func (n *Node) Prev() *Node {
 	 //TODO: Complete me!
 }
 
 // successor returns the successor of the Node
-func successor[K, V any](x *Node[K, V]) *Node[K, V] {
+func successor(x *Node) *Node {
 	 //TODO: Complete me!
 }
 
 // presuccessor returns the presuccessor of the Node
-func presuccessor[K, V any](x *Node[K, V]) *Node[K, V] {
+func presuccessor(x *Node) *Node {
 	 //TODO: Complete me!
 }
 
 // minimum finds the minimum Node of subtree n.
-func minimum[K any, V any](n *Node[K, V]) *Node[K, V] {
+func minimum(n *Node) *Node {
 	 //TODO: Complete me!
 }
 
 // maximum finds the maximum Node of subtree n.
-func maximum[K any, V any](n *Node[K, V]) *Node[K, V] {
+func maximum(n *Node) *Node {
 	 //TODO: Complete me!
 }

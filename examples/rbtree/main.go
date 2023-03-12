@@ -3,18 +3,16 @@ package main
 import (
 	"fmt"
 	"stl/ds/rbtree"
-	"stl/utils/comparator"
 )
 
 func main() {
-	tree := rbtree.New[int, string](comparator.IntComparator)
+	tree := rbtree.New()
 	tree.Insert(1, "aaa")
 	tree.Insert(5, "bbb")
 	tree.Insert(3, "ccc")
-	v, _ := tree.Find(5)
-	fmt.Printf("find %v returns %v\n", 5, v)
+	fmt.Printf("find %v returns %v\n", 5, tree.Find(5))
 
-	tree.Traversal(func(key int, value string) bool {
+	tree.Traversal(func(key, value interface{}) bool {
 		fmt.Printf("%v : %v\n", key, value)
 		return true
 	})

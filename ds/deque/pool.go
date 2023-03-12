@@ -1,26 +1,26 @@
 package deque
 
 // Pool is a memory pool for holding Segments
-type Pool[T any] struct {
+type Pool struct {
 	 //TODO: Complete me!
 }
 
-func newPool[T any]() *Pool[T] {
+func newPool() *Pool {
 	 //TODO: Complete me!
 }
 
-func (p *Pool[T]) get() *Segment[T] {
+func (p *Pool) get() *Segment {
 	 //TODO: Complete me!
 }
 
-func (p *Pool[T]) put(s *Segment[T]) {
+func (p *Pool) put(s *Segment) {
 	 //TODO: Complete me!
 }
 
-func (p *Pool[T]) shrinkToSize(size int) {
+func (p *Pool) shrinkToSize(size int) {
 	 //TODO: Complete me!
 }
 
-func (p *Pool[T]) size() int {
+func (p *Pool) size() int {
 	 //TODO: Complete me!
 }

@@ -6,10 +6,14 @@ import (
 )
 
 //NextPermutation transform range [first last) to next permutation,return true if success, or false if failure
-func NextPermutation[T any](first, last iterator.RandomAccessIterator[T], cmp comparator.Comparator[T]) bool {
+func NextPermutation(first, last iterator.RandomAccessIterator, cmp ...comparator.Comparator) bool {
 	 //TODO: Complete me!
 }
 
-func reverse[T any](s, e iterator.RandomAccessIterator[T]) {
+func nextPermutation(first, last iterator.RandomAccessIterator, cmp comparator.Comparator) bool {
+	 //TODO: Complete me!
+}
+
+func reverse(s, e iterator.RandomAccessIterator) {
 	 //TODO: Complete me!
 }

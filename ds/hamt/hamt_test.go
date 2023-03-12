@@ -8,38 +8,34 @@ import (
 )
 
 func TestHamt(t *testing.T) {
-	h := New[int](WithGoroutineSafe())
+	h := New(WithGoroutineSafe())
 
 	for i := 0; i < 1000; i++ {
 		key := fmt.Sprintf("%07d", i)
 		h.Insert(Key(key), i)
-		v, _ := h.Get(Key(key))
-		assert.Equal(t, i, v)
+		assert.Equal(t, i, h.Get(Key(key)))
 	}
 
 	for i := 0; i < 1000; i++ {
 		key := fmt.Sprintf("%07d", i)
-		v, _ := h.Get(Key(key))
-		assert.Equal(t, i, v)
+		assert.Equal(t, i, h.Get(Key(key)))
 	}
 
 	for i := 0; i < 1000; i++ {
 		key := fmt.Sprintf("%07d", i)
 		assert.True(t, h.Erase(Key(key)))
-		_, err := h.Get(Key(key))
-		assert.Equal(t, err, ErrorNotFound)
+		assert.Equal(t, nil, h.Get(Key(key)))
 	}
 
 	for i := 0; i < 1000; i++ {
 		key := fmt.Sprintf("%08d", i)
 		h.Insert([]byte(key), i)
-		v, _ := h.Get(Key(key))
-		assert.Equal(t, i, v)
+		assert.Equal(t, i, h.Get(Key(key)))
 	}
 }
 
 func TestTraversal(t *testing.T) {
-	h := New[string]()
+	h := New()
 	m := make(map[string]string)
 
 	h.Insert(Key("222"), "bbb")
@@ -62,9 +58,9 @@ func TestTraversal(t *testing.T) {
 	assert.Equal(t, "222", strKeys[1])
 	assert.Equal(t, "333", strKeys[2])
 
-	h.Traversal(func(key Key, value string) bool {
-		val := m[string(key)]
-		assert.Equal(t, val, value)
+	h.Traversal(func(key, value interface{}) bool {
+		val := m[string(key.(Key))]
+		assert.Equal(t, val, value.(string))
 		return true
 	})
 }

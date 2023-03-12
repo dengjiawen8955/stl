@@ -5,11 +5,10 @@ import (
 	"math/rand"
 	"stl/algorithm/sort"
 	"stl/ds/deque"
-	"stl/utils/comparator"
 )
 
 func main() {
-	q := deque.New[int]()
+	q := deque.New()
 	for i := 0; i < 100; i++ {
 		r := rand.Int() % 100
 		q.PushBack(r)
@@ -17,7 +16,7 @@ func main() {
 	}
 	fmt.Printf("%v\n", q)
 
-	sort.Sort[int](q.Begin(), q.End(), comparator.IntComparator)
+	sort.Sort(q.Begin(), q.End())
 	fmt.Printf("%v\n", q)
 
 	for !q.Empty() {

@@ -1,53 +1,51 @@
 package bidlist
 
-import (
-	"stl/utils/iterator"
-)
+import "stl/utils/iterator"
 
-// ListIterator is an implementation of BidIterator
-var _ iterator.BidIterator[T] = (*ListIterator[T])(nil)
+//ListIterator is an implementation of BidIterator
+var _ iterator.BidIterator = (*ListIterator)(nil)
 
 // ListIterator is an implementation of list iterator
-type ListIterator[T any] struct {
+type ListIterator struct {
 	 //TODO: Complete me!
 }
 
 // NewIterator creates a ListIterator
-func NewIterator[T any](node *Node[T]) *ListIterator[T] {
+func NewIterator(node *Node) *ListIterator {
 	 //TODO: Complete me!
 }
 
 // IsValid returns true if the iterator is valid, otherwise returns false
-func (iter *ListIterator[T]) IsValid() bool {
+func (iter *ListIterator) IsValid() bool {
 	 //TODO: Complete me!
 }
 
 // Next moves the pointer of iterator to the next node and returns itself
-func (iter *ListIterator[T]) Next() iterator.ConstIterator[T] {
+func (iter *ListIterator) Next() iterator.ConstIterator {
 	 //TODO: Complete me!
 }
 
 // Prev moves the pointer of iterator to the previous node and returns itself
-func (iter *ListIterator[T]) Prev() iterator.ConstBidIterator[T] {
+func (iter *ListIterator) Prev() iterator.ConstBidIterator {
 	 //TODO: Complete me!
 }
 
 // Value returns the node's value of the iterator point to
-func (iter *ListIterator[T]) Value() T {
+func (iter *ListIterator) Value() interface{} {
 	 //TODO: Complete me!
 }
 
 // SetValue sets the node's value of the iterator point to
-func (iter *ListIterator[T]) SetValue(value T) {
+func (iter *ListIterator) SetValue(value interface{}) {
 	 //TODO: Complete me!
 }
 
 // Clone clones the iterator to a new iterator
-func (iter *ListIterator[T]) Clone() iterator.ConstIterator[T] {
+func (iter *ListIterator) Clone() iterator.ConstIterator {
 	 //TODO: Complete me!
 }
 
 // Equal returns true if the iterator is equal to the passed iterator, otherwise returns false
-func (iter *ListIterator[T]) Equal(other iterator.ConstIterator[T]) bool {
+func (iter *ListIterator) Equal(other iterator.ConstIterator) bool {
 	 //TODO: Complete me!
 }

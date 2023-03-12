@@ -15,28 +15,28 @@ func main() {
 	a = append(a, "bbbb")
 	a = append(a, "bb")
 
-	sliceA := slice.NewSliceWrapper(a)
+	sliceA := slice.StringSlice(a)
 
 	////Sort in ascending order
-	sort.Sort[string](sliceA.Begin(), sliceA.End(), comparator.OrderedTypeCmp[string])
-
-	sort.Stable[string](sliceA.Begin(), sliceA.End(), comparator.StringComparator)
+	sort.Sort(sliceA.Begin(), sliceA.End())
+	//sort.Stable(sliceA.Begin(), sliceA.End())
 	fmt.Printf("%v\n", a)
 
-	if sort.BinarySearch[string](sliceA.Begin(), sliceA.End(), "bbbb", comparator.StringComparator) {
+	if sort.BinarySearch(sliceA.Begin(), sliceA.End(), "bbbb") {
 		fmt.Printf("BinarySearch: found bbbb\n")
 	}
 
-	iter := sort.LowerBound[string](sliceA.Begin(), sliceA.End(), "bbbb", comparator.StringComparator)
+	iter := sort.LowerBound(sliceA.Begin(), sliceA.End(), "bbbb")
 	if iter.IsValid() {
 		fmt.Printf("LowerBound bbbb: %v\n", iter.Value())
 	}
-	iter = sort.UpperBound[string](sliceA.Begin(), sliceA.End(), "bbbb", comparator.StringComparator)
+	iter = sort.UpperBound(sliceA.Begin(), sliceA.End(), "bbbb")
 	if iter.IsValid() {
 		fmt.Printf("UpperBound bbbb: %v\n", iter.Value())
 	}
 	//Sort in descending order
-	sort.Sort[string](sliceA.Begin(), sliceA.End(), comparator.Reverse(comparator.StringComparator))
-	//sort.Stable[string](sliceA.Begin(), sliceA.End(), comparator.Reverse(comparator.StringComparator))
+	sort.Sort(sliceA.Begin(), sliceA.End(), comparator.Reverse(comparator.BuiltinTypeComparator))
+	//sort.Stable(sliceA.Begin(), sliceA.End(), comparator.Reverse(comparator.BuiltinTypeComparator))
 	fmt.Printf("%v\n", a)
+
 }

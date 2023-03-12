@@ -2,18 +2,14 @@ package deque
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
-
-	//"fmt"
 	"github.com/stretchr/testify/assert"
-	//"math/rand"
+	"math/rand"
 	"testing"
-	//"time"
+	"time"
 )
 
 func TestPushPop(t *testing.T) {
-	q := New[int]()
+	q := New()
 
 	q.PushBack(1)  //[1]
 	q.PushFront(2) //[2 1]
@@ -43,7 +39,7 @@ func TestPushPop(t *testing.T) {
 }
 
 func TestErase(t *testing.T) {
-	q := New[int]()
+	q := New()
 	assert.True(t, q.Empty())
 	for i := 0; i < 5; i++ {
 		q.PushBack(i + 1)
@@ -77,7 +73,7 @@ func TestErase(t *testing.T) {
 }
 
 func TestIterator(t *testing.T) {
-	q := New[int]()
+	q := New()
 	for i := 0; i < 10; i++ {
 		q.PushBack(i)
 	}
@@ -93,7 +89,7 @@ func TestIterator(t *testing.T) {
 		n--
 	}
 
-	iter := q.First().IteratorAt(5).Clone().(*DequeIterator[int])
+	iter := q.First().IteratorAt(5).Clone().(*DequeIterator)
 	assert.Equal(t, 5, iter.Position())
 	assert.Equal(t, 5, iter.Value())
 
@@ -102,7 +98,7 @@ func TestIterator(t *testing.T) {
 }
 
 func TestRandom(t *testing.T) {
-	q := New[int]()
+	q := New()
 	rand.Seed(time.Now().UnixNano())
 	a := make([]int, 0)
 	for i := 0; i < 11000; i++ {
@@ -114,16 +110,12 @@ func TestRandom(t *testing.T) {
 			q.PushFront(i)
 			a = append([]int{i}, a...)
 		} else if k%6 == 2 {
-			if q.Size() > 0 {
-				q.PopFront()
-			}
+			q.PopFront()
 			if len(a) > 0 {
 				a = a[1:]
 			}
 		} else if k%6 == 3 {
-			if q.Size() > 0 {
-				q.PopBack()
-			}
+			q.PopBack()
 			if len(a) > 0 {
 				a = a[:len(a)-1]
 			}
@@ -166,7 +158,7 @@ func TestRandom(t *testing.T) {
 }
 
 func TestInsert1(t *testing.T) {
-	q := New[int]()
+	q := New()
 	for i := 0; i < 5; i++ {
 		q.PushBack(i)
 	}
@@ -175,7 +167,7 @@ func TestInsert1(t *testing.T) {
 	q.Insert(0, 5)
 	assert.Equal(t, "[5 0 1 2 3 4]", q.String())
 
-	q = New[int]()
+	q = New()
 	for i := 0; i < 5; i++ {
 		q.PushBack(i)
 	}
@@ -184,7 +176,7 @@ func TestInsert1(t *testing.T) {
 	q.Insert(1, 5)
 	assert.Equal(t, "[0 5 1 2 3 4]", q.String())
 
-	q = New[int]()
+	q = New()
 	for i := 0; i < 5; i++ {
 		q.PushBack(i)
 	}
@@ -193,21 +185,21 @@ func TestInsert1(t *testing.T) {
 	q.Insert(2, 5)
 	assert.Equal(t, "[0 1 5 2 3 4]", q.String())
 
-	q = New[int]()
+	q = New()
 	for i := 0; i < 5; i++ {
 		q.PushBack(i)
 	}
 	q.Insert(3, 5)
 	assert.Equal(t, "[0 1 2 5 3 4]", q.String())
 
-	q = New[int]()
+	q = New()
 	for i := 0; i < 5; i++ {
 		q.PushBack(i)
 	}
 	q.Insert(4, 5)
 	assert.Equal(t, "[0 1 2 3 5 4]", q.String())
 
-	q = New[int]()
+	q = New()
 	for i := 0; i < 6; i++ {
 		q.PushBack(i)
 	}
@@ -218,7 +210,7 @@ func TestInsert1(t *testing.T) {
 }
 
 func TestInsert2(t *testing.T) {
-	q := New[int]()
+	q := New()
 	for i := 0; i < 4; i++ {
 		q.PushBack(i)
 	}
@@ -228,7 +220,7 @@ func TestInsert2(t *testing.T) {
 	q.Insert(0, 5)
 	assert.Equal(t, "[5 4 0 1 2 3]", q.String())
 
-	q = New[int]()
+	q = New()
 	for i := 0; i < 4; i++ {
 		q.PushBack(i)
 	}
@@ -236,7 +228,7 @@ func TestInsert2(t *testing.T) {
 	q.Insert(1, 5)
 	assert.Equal(t, "[4 5 0 1 2 3]", q.String())
 
-	q = New[int]()
+	q = New()
 	for i := 0; i < 4; i++ {
 		q.PushBack(i)
 	}
@@ -244,7 +236,7 @@ func TestInsert2(t *testing.T) {
 	q.Insert(2, 5)
 	assert.Equal(t, "[4 0 5 1 2 3]", q.String())
 
-	q = New[int]()
+	q = New()
 	for i := 0; i < 4; i++ {
 		q.PushBack(i)
 	}

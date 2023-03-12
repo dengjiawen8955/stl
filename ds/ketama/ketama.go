@@ -2,8 +2,7 @@ package ketama
 
 import (
 	"stl/algorithm/hash"
-	"stl/ds/treemap"
-	"stl/utils/comparator"
+	treemap "stl/ds/map"
 	"stl/utils/sync"
 	gosync "sync"
 )

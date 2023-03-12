@@ -1,23 +1,24 @@
 package sort
 
 import (
+	"fmt"
 	"stl/utils/comparator"
 	"stl/utils/iterator"
 )
 
 //Sort sorts the container by using quick sort
-func Sort[T any](first, last iterator.RandomAccessIterator[T], cmp comparator.Comparator[T]) {
+func Sort(first, last iterator.RandomAccessIterator, cmp ...comparator.Comparator) {
 	 //TODO: Complete me!
 }
 
-func quickSort[T any](first, last iterator.RandomAccessIterator[T], cmp comparator.Comparator[T]) {
+func quickSort(first, last iterator.RandomAccessIterator, cmp comparator.Comparator) {
 	 //TODO: Complete me!
 }
 
-func doPivot[T any](first, mid, last iterator.RandomAccessIterator[T], cmp comparator.Comparator[T]) {
+func doPivot(first, mid, last iterator.RandomAccessIterator, cmp comparator.Comparator) {
 	 //TODO: Complete me!
 }
 
-func swapValue[T any](a, b iterator.RandomAccessIterator[T]) {
+func swapValue(a, b iterator.RandomAccessIterator) {
 	 //TODO: Complete me!
 }

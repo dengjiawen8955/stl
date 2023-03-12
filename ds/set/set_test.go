@@ -1,15 +1,14 @@
 package set
 
 import (
-	"testing"
-
 	"stl/utils/comparator"
+	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestSet(t *testing.T) {
-	s := New(comparator.IntComparator)
+	s := New()
 	for i := 10; i >= 1; i-- {
 		assert.False(t, s.Contains(i))
 		s.Insert(i)
@@ -34,17 +33,14 @@ func TestSet(t *testing.T) {
 	iter := s.LowerBound(3)
 	assert.Equal(t, 3, iter.Value())
 
-	iter = s.UpperBound(3)
-	assert.Equal(t, 4, iter.Value())
-
 	s.Erase(3)
 	iter = s.LowerBound(3)
 	assert.Equal(t, 4, iter.Value())
 }
 
 func TestSet_Cal(t *testing.T) {
-	s1 := New(comparator.IntComparator)
-	s2 := New(comparator.IntComparator)
+	s1 := New()
+	s2 := New()
 	for i := 1; i <= 5; i++ {
 		s1.Insert(i)     // [1 2 3 4 5]
 		s2.Insert(i + 3) // [4 5 6 7 8]
@@ -57,7 +53,7 @@ func TestSet_Cal(t *testing.T) {
 }
 
 func TestSet_Erase(t *testing.T) {
-	s := New(comparator.IntComparator)
+	s := New()
 	for i := 0; i < 1000; i++ {
 		s.Insert(i)
 	}
@@ -68,7 +64,7 @@ func TestSet_Erase(t *testing.T) {
 }
 
 func TestSetIterator(t *testing.T) {
-	s := New(comparator.IntComparator, WithGoroutineSafe())
+	s := New(WithGoroutineSafe(), WithKeyComparator(comparator.IntComparator))
 	for i := 0; i < 10; i++ {
 		s.Insert(i)
 	}

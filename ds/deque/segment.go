@@ -1,78 +1,78 @@
 package deque
 
 //Segment is a fixed capacity ring
-type Segment[T any] struct {
+type Segment struct {
 	 //TODO: Complete me!
 }
 
-func newSegment[T any](capacity int) *Segment[T] {
+func newSegment(capacity int) *Segment {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) pushBack(value T) {
+func (s *Segment) pushBack(value interface{}) {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) pushFront(val T) {
+func (s *Segment) pushFront(val interface{}) {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) insert(position int, value T) {
+func (s *Segment) insert(position int, value interface{}) {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) popBack() T {
+func (s *Segment) popBack() interface{} {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) popFront() T {
+func (s *Segment) popFront() interface{} {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) eraseAt(position int) {
+func (s *Segment) eraseAt(position int) {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) size() int {
+func (s *Segment) size() int {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) capacity() int {
+func (s *Segment) capacity() int {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) full() bool {
+func (s *Segment) full() bool {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) empty() bool {
+func (s *Segment) empty() bool {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) nextIndex(index int) int {
+func (s *Segment) nextIndex(index int) int {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) preIndex(index int) int {
+func (s *Segment) preIndex(index int) int {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) at(position int) T {
+func (s *Segment) at(position int) interface{} {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) set(position int, val T) {
+func (s *Segment) set(position int, val interface{}) {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) back() T {
+func (s *Segment) back() interface{} {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) front() T {
+func (s *Segment) front() interface{} {
 	 //TODO: Complete me!
 }
 
-func (s *Segment[T]) clear() {
+func (s *Segment) clear() {
 	 //TODO: Complete me!
 }

@@ -1,13 +1,12 @@
 package priorityqueue
 
 import (
+	. "stl/utils/comparator"
 	"testing"
-
-	"stl/utils/comparator"
 )
 
 func TestMinPriorityQueue(t *testing.T) {
-	pq := New(comparator.IntComparator)
+	pq := New()
 	pq.Push(4)
 	pq.Push(8)
 	pq.Push(1)
@@ -19,7 +18,7 @@ func TestMinPriorityQueue(t *testing.T) {
 }
 
 func TestMaxPriorityQueue(t *testing.T) {
-	pq := New(comparator.IntComparator, WithGoroutineSafe())
+	pq := New(WithComparator(Reverse(BuiltinTypeComparator)), WithGoroutineSafe())
 	pq.Push(4)
 	pq.Push(8)
 	pq.Push(1)
@@ -31,7 +30,7 @@ func TestMaxPriorityQueue(t *testing.T) {
 }
 
 func TestStringPriorityQueue(t *testing.T) {
-	pq := New(comparator.Reverse(comparator.StringComparator))
+	pq := New(WithComparator(Reverse(BuiltinTypeComparator)))
 	pq.Push("fdsf")
 	pq.Push("aavdsav")
 	pq.Push("hrh42y5")

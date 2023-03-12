@@ -3,13 +3,12 @@ package array
 import (
 	"stl/algorithm/sort"
 	"stl/utils/comparator"
-	"testing"
-
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestArray(t *testing.T) {
-	a := New[int](10)
+	a := New(10)
 	assert.Equal(t, 10, a.Size())
 	assert.Equal(t, false, a.Empty())
 
@@ -17,10 +16,10 @@ func TestArray(t *testing.T) {
 	a.Fill(va)
 	for i := 0; i < a.Size(); i++ {
 		val := a.At(i)
-		assert.Equal(t, va, val)
+		assert.Equal(t, va, val.(int))
 	}
 
-	b := New[int](10)
+	b := New(10)
 	vb := 66
 	b.Fill(vb)
 	a.SwapArray(b)
@@ -37,22 +36,22 @@ func TestArray(t *testing.T) {
 	t.Logf("Traversal a:")
 	i := 0
 	for iter := a.First(); iter.IsValid(); iter.Next() {
-		t.Logf("%v ", iter.Value())
-		assert.Equal(t, i, iter.Value())
+		t.Logf("%v ", iter.Value().(int))
+		assert.Equal(t, i, iter.Value().(int))
 		i++
 	}
 
 	t.Logf(" Reverse traversal a:")
 	i = a.Size() - 1
 	for iter := a.Last(); iter.IsValid(); iter.Next() {
-		t.Logf("%v ", iter.Value())
-		assert.Equal(t, i, iter.Value())
+		t.Logf("%v ", iter.Value().(int))
+		assert.Equal(t, i, iter.Value().(int))
 		i--
 	}
 }
 
 func TestNewFromArray(t *testing.T) {
-	a := New[int](10)
+	a := New(10)
 	for i := 0; i < 10; i++ {
 		a.Set(i, i*10)
 	}
@@ -65,11 +64,11 @@ func TestNewFromArray(t *testing.T) {
 }
 
 func TestSort(t *testing.T) {
-	a := New[int](10)
+	a := New(10)
 	for i := 0; i < 10; i++ {
 		a.Set(i, 10-i)
 	}
-	sort.Stable[int](a.Begin(), a.End(), comparator.IntComparator)
+	sort.Stable(a.Begin(), a.End(), comparator.BuiltinTypeComparator)
 	t.Logf("a: %v", a.String())
 	for i := 0; i < a.Size()-1; i++ {
 		assert.LessOrEqual(t, a.At(i), a.At(i))
@@ -77,7 +76,7 @@ func TestSort(t *testing.T) {
 }
 
 func TestIterator(t *testing.T) {
-	a := New[int](10)
+	a := New(10)
 	n := 0
 	for iter := a.Begin(); iter.IsValid(); iter.Next() {
 		iter.SetValue(n)

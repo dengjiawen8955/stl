@@ -6,14 +6,14 @@ import (
 )
 
 //Stable sorts the container by using merge sort
-func Stable[T any](first, last iterator.RandomAccessIterator[T], cmp comparator.Comparator[T]) {
+func Stable(first, last iterator.RandomAccessIterator, cmp ...comparator.Comparator) {
 	 //TODO: Complete me!
 }
 
-func mergeSort[T any](first, last iterator.RandomAccessIterator[T], cmp comparator.Comparator[T], tempSlice []T) {
+func mergeSort(first, last iterator.RandomAccessIterator, cmp comparator.Comparator, tempSlice []interface{}) {
 	 //TODO: Complete me!
 }
 
-func merge[T any](first, mid, end iterator.RandomAccessIterator[T], cmp comparator.Comparator[T], tempSlice []T) {
+func merge(first, mid, end iterator.RandomAccessIterator, cmp comparator.Comparator, tempSlice []interface{}) {
 	 //TODO: Complete me!
 }

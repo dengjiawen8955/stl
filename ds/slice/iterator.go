@@ -2,58 +2,55 @@ package slice
 
 import "stl/utils/iterator"
 
-type T any
-
-// SliceIterator is an implementation of RandomAccessIterator
-
-var _ iterator.RandomAccessIterator[T] = (*SliceIterator[T])(nil)
+// SliceIterator is a implementation of RandomAccessIterator
+var _ iterator.RandomAccessIterator = (*SliceIterator)(nil)
 
 // SliceIterator represents a slice iterator
-type SliceIterator[T any] struct {
+type SliceIterator struct {
 	 //TODO: Complete me!
 }
 
 // IsValid returns trus if the iterator is valid, othterwise return false
-func (iter *SliceIterator[T]) IsValid() bool {
+func (iter *SliceIterator) IsValid() bool {
 	 //TODO: Complete me!
 }
 
 // Value returns the value of the iterator point to
-func (iter *SliceIterator[T]) Value() T {
+func (iter *SliceIterator) Value() interface{} {
 	 //TODO: Complete me!
 }
 
 // SetValue sets the value of the iterator point to
-func (iter *SliceIterator[T]) SetValue(val T) {
+func (iter *SliceIterator) SetValue(val interface{}) {
 	 //TODO: Complete me!
 }
 
 // Next moves the iterator's position to the next position, and returns itself
-func (iter *SliceIterator[T]) Next() iterator.ConstIterator[T] {
+func (iter *SliceIterator) Next() iterator.ConstIterator {
 	 //TODO: Complete me!
 }
 
 // Prev move the iterator's position to the previous position, and return itself
-func (iter *SliceIterator[T]) Prev() iterator.ConstBidIterator[T] {
+func (iter *SliceIterator) Prev() iterator.ConstBidIterator {
 	 //TODO: Complete me!
 }
 
 // Clone clones the iterator into a new one
-func (iter *SliceIterator[T]) Clone() iterator.ConstIterator[T] {
+func (iter *SliceIterator) Clone() iterator.ConstIterator {
 	 //TODO: Complete me!
 }
 
 // IteratorAt creates an iterator with the passed position
-func (iter *SliceIterator[T]) IteratorAt(position int) iterator.RandomAccessIterator[T] {
+func (iter *SliceIterator) IteratorAt(position int) iterator.RandomAccessIterator {
 	 //TODO: Complete me!
 }
 
 // Position returns the position of the iterator
-func (iter *SliceIterator[T]) Position() int {
+func (iter *SliceIterator) Position() int {
 	 //TODO: Complete me!
 }
 
 // Equal returns true if the iterator is equal to the passed iterator
-func (iter *SliceIterator[T]) Equal(other iterator.ConstIterator[T]) bool {
+func (iter *SliceIterator) Equal(other iterator.ConstIterator) bool {
 	 //TODO: Complete me!
 }

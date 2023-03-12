@@ -4,11 +4,10 @@ import (
 	"fmt"
 	"stl/algorithm/sort"
 	"stl/ds/deque"
-	"stl/utils/comparator"
 )
 
 func main() {
-	a := deque.New[int]()
+	a := deque.New()
 	a.PushBack(9)
 	a.PushBack(8)
 	a.PushBack(7)
@@ -19,7 +18,7 @@ func main() {
 	a.PushBack(2)
 	a.PushBack(1)
 	fmt.Printf("%v\n", a)
-	sort.NthElement[int](a.Begin(), a.End(), 3, comparator.IntComparator)
+	sort.NthElement(a.Begin(), a.End(), 3)
 	fmt.Printf("%v\n", a.At(3))
 	fmt.Printf("%v\n", a)
 }

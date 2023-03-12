@@ -1,15 +1,12 @@
 package set
 
 import (
-	"testing"
-
-	"stl/utils/comparator"
-
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestMultiSet(t *testing.T) {
-	mset := NewMultiSet(comparator.IntComparator, WithGoroutineSafe())
+	mset := NewMultiSet(WithGoroutineSafe())
 
 	mset.Insert(1)
 	mset.Insert(5)
@@ -37,9 +34,6 @@ func TestMultiSet(t *testing.T) {
 	assert.True(t, mset.Contains(7))
 
 	iter := mset.LowerBound(5)
-	assert.Equal(t, 7, iter.Value())
-
-	iter = mset.UpperBound(3)
 	assert.Equal(t, 7, iter.Value())
 
 	iter = mset.Find(3)

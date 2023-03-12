@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	v := vector.New[int]()
+	v := vector.New()
 	v.PushBack(1)
 	v.PushBack(2)
 	v.PushBack(3)
@@ -18,7 +18,7 @@ func main() {
 	fmt.Printf("\n")
 
 	// sort in descending
-	sort.Sort[int](v.Begin(), v.End(), comparator.Reverse(comparator.IntComparator))
+	sort.Sort(v.Begin(), v.End(), comparator.Reverse(comparator.BuiltinTypeComparator))
 	for iter := v.Begin(); iter.IsValid(); iter.Next() {
 		fmt.Printf("%v ", iter.Value())
 	}

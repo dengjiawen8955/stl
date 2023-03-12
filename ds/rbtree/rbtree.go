@@ -1,160 +1,164 @@
 package rbtree
 
 import (
-	"errors"
 	"fmt"
-
 	"stl/utils/comparator"
 	"stl/utils/visitor"
 )
 
-var ErrorNotFound = errors.New("not found")
+var (
+	defaultKeyComparator = comparator.BuiltinTypeComparator
+)
+
+// Options holds RbTree's options
+type Options struct {
+	 //TODO: Complete me!
+}
+
+// Option is a function type used to set Options
+type Option func(option *Options)
+
+//WithKeyComparator is used to set RbTree's key comparator
+func WithKeyComparator(cmp comparator.Comparator) Option {
+	 //TODO: Complete me!
+}
 
 // RbTree is a kind of self-balancing binary search tree in computer science.
 // Each node of the binary tree has an extra bit, and that bit is often interpreted
 // as the color (red or black) of the node. These color bits are used to ensure the tree
 // remains approximately balanced during insertions and deletions.
-type RbTree[K, V any] struct {
+type RbTree struct {
 	 //TODO: Complete me!
 }
 
-// New creates a new RbTree
-func New[K, V any](cmp comparator.Comparator[K]) *RbTree[K, V] {
+//New creates a new RbTree
+func New(opts ...Option) *RbTree {
 	 //TODO: Complete me!
 }
 
 // Clear clears the RbTree
-func (t *RbTree[K, V]) Clear() {
+func (t *RbTree) Clear() {
 	 //TODO: Complete me!
 }
 
 // Find finds the first node that the key is equal to the passed key, and returns its value
-func (t *RbTree[K, V]) Find(key K) (V, error) {
+func (t *RbTree) Find(key interface{}) interface{} {
 	 //TODO: Complete me!
 }
 
 // FindNode the first node that the key is equal to the passed key and return it
-func (t *RbTree[K, V]) FindNode(key K) *Node[K, V] {
+func (t *RbTree) FindNode(key interface{}) *Node {
 	 //TODO: Complete me!
 }
 
 // Begin returns the node with minimum key in the RbTree
-func (t *RbTree[K, V]) Begin() *Node[K, V] {
+func (t *RbTree) Begin() *Node {
 	 //TODO: Complete me!
 }
 
 // First returns the node with minimum key in the RbTree
-func (t *RbTree[K, V]) First() *Node[K, V] {
+func (t *RbTree) First() *Node {
 	 //TODO: Complete me!
 }
 
 // RBegin returns the Node with maximum key in the RbTree
-func (t *RbTree[K, V]) RBegin() *Node[K, V] {
+func (t *RbTree) RBegin() *Node {
 	 //TODO: Complete me!
 }
 
 // Last returns the Node with maximum key in the RbTree
-func (t *RbTree[K, V]) Last() *Node[K, V] {
+func (t *RbTree) Last() *Node {
 	 //TODO: Complete me!
 }
 
 // IterFirst returns the iterator of first node
-func (t *RbTree[K, V]) IterFirst() *RbTreeIterator[K, V] {
+func (t *RbTree) IterFirst() *RbTreeIterator {
 	 //TODO: Complete me!
 }
 
 // IterLast returns the iterator of first node
-func (t *RbTree[K, V]) IterLast() *RbTreeIterator[K, V] {
+func (t *RbTree) IterLast() *RbTreeIterator {
 	 //TODO: Complete me!
 }
 
 // Empty returns true if Tree is empty,otherwise returns false.
-func (t *RbTree[K, V]) Empty() bool {
+func (t *RbTree) Empty() bool {
 	 //TODO: Complete me!
 }
 
 // Size returns the size of the rbtree.
-func (t *RbTree[K, V]) Size() int {
+func (t *RbTree) Size() int {
 	 //TODO: Complete me!
 }
 
 // Insert inserts a key-value pair into the RbTree.
-func (t *RbTree[K, V]) Insert(key K, value V) {
+func (t *RbTree) Insert(key, value interface{}) {
 	 //TODO: Complete me!
 }
 
-func (t *RbTree[K, V]) rbInsertFixup(z *Node[K, V]) {
+func (t *RbTree) rbInsertFixup(z *Node) {
 	 //TODO: Complete me!
 }
 
 // Delete deletes node from the RbTree
-func (t *RbTree[K, V]) Delete(node *Node[K, V]) {
+func (t *RbTree) Delete(node *Node) {
 	 //TODO: Complete me!
 }
 
-func (t *RbTree[K, V]) rbDeleteFixup(x, parent *Node[K, V]) {
+func (t *RbTree) rbDeleteFixup(x, parent *Node) {
 	 //TODO: Complete me!
 }
 
-func (t *RbTree[K, V]) rbFixupLeft(x, parent, w *Node[K, V]) (*Node[K, V], *Node[K, V]) {
+func (t *RbTree) rbFixupLeft(x, parent, w *Node) (*Node, *Node) {
 	 //TODO: Complete me!
 }
 
-func (t *RbTree[K, V]) rbFixupRight(x, parent, w *Node[K, V]) (*Node[K, V], *Node[K, V]) {
+func (t *RbTree) rbFixupRight(x, parent, w *Node) (*Node, *Node) {
 	 //TODO: Complete me!
 }
 
-func (t *RbTree[K, V]) leftRotate(x *Node[K, V]) {
+func (t *RbTree) leftRotate(x *Node) {
 	 //TODO: Complete me!
 }
 
-func (t *RbTree[K, V]) rightRotate(x *Node[K, V]) {
+func (t *RbTree) rightRotate(x *Node) {
 	 //TODO: Complete me!
 }
 
 // findNode finds the node that its key is equal to the passed key, and returns it.
-func (t *RbTree[K, V]) findNode(key K) *Node[K, V] {
+func (t *RbTree) findNode(key interface{}) *Node {
 	 //TODO: Complete me!
 }
 
 // findNode finds the first node that its key is equal to the passed key, and returns it
-func (t *RbTree[K, V]) findFirstNode(key K) *Node[K, V] {
+func (t *RbTree) findFirstNode(key interface{}) *Node {
 	 //TODO: Complete me!
 }
 
 // FindLowerBoundNode finds the first node that its key is equal or greater than the passed key, and returns it
-func (t *RbTree[K, V]) FindLowerBoundNode(key K) *Node[K, V] {
+func (t *RbTree) FindLowerBoundNode(key interface{}) *Node {
 	 //TODO: Complete me!
 }
 
-func (t *RbTree[K, V]) findLowerBoundNode(x *Node[K, V], key K) *Node[K, V] {
-	 //TODO: Complete me!
-}
-
-// FindUpperBoundNode finds the first node that its key is greater than the passed key, and returns it
-func (t *RbTree[K, V]) FindUpperBoundNode(key K) *Node[K, V] {
-	 //TODO: Complete me!
-}
-
-func (t *RbTree[K, V]) findUpperBoundNode(x *Node[K, V], key K) *Node[K, V] {
+func (t *RbTree) findLowerBoundNode(x *Node, key interface{}) *Node {
 	 //TODO: Complete me!
 }
 
 // Traversal traversals elements in the RbTree, it will not stop until to the end of RbTree or the visitor returns false
-func (t *RbTree[K, V]) Traversal(visitor visitor.KvVisitor[K, V]) {
+func (t *RbTree) Traversal(visitor visitor.KvVisitor) {
 	 //TODO: Complete me!
 }
 
 // IsRbTree is a function use to test whether t is a RbTree or not
-func (t *RbTree[K, V]) IsRbTree() (bool, error) {
+func (t *RbTree) IsRbTree() (bool, error) {
 	 //TODO: Complete me!
 }
 
-func (t *RbTree[K, V]) test(n *Node[K, V]) (int, int, bool) {
+func (t *RbTree) test(n *Node) (int, int, bool) {
 	 //TODO: Complete me!
 }
 
 // getColor returns the node's color
-func getColor[K, V any](n *Node[K, V]) Color {
+func getColor(n *Node) Color {
 	 //TODO: Complete me!
 }

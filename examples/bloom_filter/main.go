@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"stl/ds/bloomfilter"
+	bloom "stl/ds/bloomfilter"
 )
 
 func main() {
-	filter := bloomfilter.New(100, 4, bloomfilter.WithGoroutineSafe())
+	filter := bloom.New(100, 4, bloom.WithGoroutineSafe())
 	filter.Add("hhhh")
 	filter.Add("gggg")
 

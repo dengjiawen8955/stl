@@ -10,7 +10,7 @@ import (
 )
 
 func TestVectorBase(t *testing.T) {
-	v := New[int](WithCapacity(10))
+	v := New(WithCapacity(10))
 	assert.True(t, v.Empty())
 	assert.Equal(t, 10, v.Capacity())
 	v.PushBack(1)
@@ -24,7 +24,7 @@ func TestVectorBase(t *testing.T) {
 }
 
 func TestVectorResize(t *testing.T) {
-	v := New[int](WithCapacity(10))
+	v := New(WithCapacity(10))
 	v.PushBack(1)
 	v.PushBack(2)
 	v.ShrinkToFit()
@@ -57,7 +57,7 @@ func TestVectorResize(t *testing.T) {
 }
 
 func TestModifyVector(t *testing.T) {
-	v := New[int]()
+	v := New()
 	v.PushBack(1)
 	v.PushBack(2)
 	v.PushBack(3)
@@ -76,10 +76,11 @@ func TestModifyVector(t *testing.T) {
 
 	assert.Equal(t, "[8 1 9 4]", v.String())
 	v.Clear()
+	assert.Nil(t, v.At(10))
 }
 
 func TestVectorIter(t *testing.T) {
-	v := New[int]()
+	v := New()
 	v.PushBack(1)
 	v.PushBack(2)
 	v.PushBack(3)
@@ -125,16 +126,16 @@ func TestVectorIter(t *testing.T) {
 }
 
 func TestSort(t *testing.T) {
-	v := New[int]()
+	v := New()
 	for i := 10; i >= 0; i-- {
 		v.PushBack(i)
 	}
-	sort.Sort[int](v.Begin(), v.End(), comparator.IntComparator)
+	sort.Sort(v.Begin(), v.End(), comparator.BuiltinTypeComparator)
 	for i := 0; i < v.Size(); i++ {
 		assert.Equal(t, i, v.At(i))
 	}
 
-	sort.Sort[int](v.Begin(), v.End(), comparator.Reverse(comparator.IntComparator))
+	sort.Sort(v.Begin(), v.End(), comparator.Reverse(comparator.BuiltinTypeComparator))
 	for i := 0; i < v.Size(); i++ {
 		assert.Equal(t, v.Size()-i-1, v.At(i))
 	}

@@ -1,7 +1,6 @@
 package skiplist
 
 import (
-	"errors"
 	"math/rand"
 	"stl/utils/comparator"
 	"stl/utils/sync"
@@ -11,10 +10,10 @@ import (
 )
 
 var (
-	defaultMaxLevel = 10
-	defaultLocker   sync.FakeLocker
+	defaultKeyComparator = comparator.BuiltinTypeComparator
+	defaultMaxLevel      = 10
+	defaultLocker        sync.FakeLocker
 )
-var ErrorNotFound = errors.New("not found")
 
 // Options holds Skiplist's options
 type Options struct {
@@ -23,6 +22,11 @@ type Options struct {
 
 // Option is a function used to set Options
 type Option func(option *Options)
+
+// WithKeyComparator sets Key comparator option
+func WithKeyComparator(cmp comparator.Comparator) Option {
+	 //TODO: Complete me!
+}
 
 // WithGoroutineSafe sets Skiplist goroutine-safety,
 func WithGoroutineSafe() Option {
@@ -35,59 +39,59 @@ func WithMaxLevel(maxLevel int) Option {
 }
 
 // Node is a list node
-type Node[K, V any] struct {
+type Node struct {
 	 //TODO: Complete me!
 }
 
 // Element is a kind of node with key-value data
-type Element[K, V any] struct {
+type Element struct {
 	 //TODO: Complete me!
 }
 
 // Skiplist is a kind of data structure which can search quickly by exchanging space for time
-type Skiplist[K, V any] struct {
+type Skiplist struct {
 	 //TODO: Complete me!
 }
 
 // New news a Skiplist
-func New[K, V any](cmp comparator.Comparator[K], opts ...Option) *Skiplist[K, V] {
+func New(opts ...Option) *Skiplist {
 	 //TODO: Complete me!
 }
 
 // Insert inserts a key-value pair into the skiplist
-func (sl *Skiplist[K, V]) Insert(key K, value V) {
+func (sl *Skiplist) Insert(key, value interface{}) {
 	 //TODO: Complete me!
 }
 
-// Get returns the value associated with the passed key if the key is in the skiplist, otherwise returns error
-func (sl *Skiplist[K, V]) Get(key K) (V, error) {
+// Get returns the value associated with the passed key if the key is in the skiplist, otherwise returns nil
+func (sl *Skiplist) Get(key interface{}) interface{} {
 	 //TODO: Complete me!
 }
 
 // Remove removes the key-value pair associated with the passed key and returns true if the key is in the skiplist, otherwise returns false
-func (sl *Skiplist[K, V]) Remove(key K) bool {
+func (sl *Skiplist) Remove(key interface{}) bool {
 	 //TODO: Complete me!
 }
 
 // Len returns the amount of key-value pair in the skiplist
-func (sl *Skiplist[K, V]) Len() int {
+func (sl *Skiplist) Len() int {
 	 //TODO: Complete me!
 }
 
-func (sl *Skiplist[K, V]) randomLevel() int {
+func (sl *Skiplist) randomLevel() int {
 	 //TODO: Complete me!
 }
 
-func (sl *Skiplist[K, V]) findPrevNodes(key K) []*Node[K, V] {
+func (sl *Skiplist) findPrevNodes(key interface{}) []*Node {
 	 //TODO: Complete me!
 }
 
 // Traversal traversals elements in the skiplist, it will stop until to the end or the visitor returns false
-func (sl *Skiplist[K, V]) Traversal(visitor visitor.KvVisitor[K, V]) {
+func (sl *Skiplist) Traversal(visitor visitor.KvVisitor) {
 	 //TODO: Complete me!
 }
 
 // Keys returns all keys in the skiplist
-func (sl *Skiplist[K, V]) Keys() []K {
+func (sl *Skiplist) Keys() []interface{} {
 	 //TODO: Complete me!
 }
